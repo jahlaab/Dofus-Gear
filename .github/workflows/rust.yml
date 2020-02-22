@@ -1,0 +1,19 @@
+name: Rust
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
+wget https://github.com/remi-dupre/dofus-generate-stuff/releases/download/${VERSION}/dofus-generate-stuff.tar.gz
+tar -xf dofus-generate-stuff.tar.gz
+cd dofus-generate-stuff
+./stuffer examples/earth_iop.json
